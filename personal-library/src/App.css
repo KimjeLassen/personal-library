@@ -1,0 +1,168 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc4 100%);
+}
+
+.header {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #4a3f35;
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.category-card {
+  background: #fdfbf7;
+  border-radius: 2px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(74, 63, 53, 0.08);
+  border: 1px solid #e8dcc4;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(74, 63, 53, 0.12);
+  background: #ffffff;
+}
+
+.category-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.category-title {
+  font-size: 1.8rem;
+  margin: 0.5rem 0;
+  color: #4a3f35;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.category-description {
+  color: #8b7e74;
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+  font-weight: 300;
+}
+
+.category-card.books {
+  border-left: 3px solid #a0826d;
+}
+
+.category-card.games {
+  border-left: 3px solid #8b7e74;
+}
+
+.category-card.vinyls {
+  border-left: 3px solid #9d8b7a;
+}
+
+.category-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-container {
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  color: #4a3f35;
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  left: 2rem;
+  top: 2rem;
+  color: #8b7e74;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #4a3f35;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.7;
+  font-weight: 300;
+}
+
+.page-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: #8b7e74;
+  font-size: 1.1rem;
+  padding: 4rem 2rem;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .back-link {
+    position: static;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+}
