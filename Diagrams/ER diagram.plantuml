@@ -1,0 +1,67 @@
+@startuml
+title Personal Library System
+entity Book {
+  *book_id : int
+  --
+  title : string
+  author : string
+  published_year : int
+  genre : string
+  book_category_id : int
+  page_count : int
+  read : boolean
+}
+
+entity BookCategory {
+  *category_id : int
+  --
+  name : string
+  description : string
+}
+
+Book }--|| BookCategory : belongs to
+
+entity Game {
+  *game_id : int
+  --
+  title : string
+  platform : int
+  release_year : int
+  genre : string
+  game_category_id : int
+  order_index : int
+  finished : boolean
+}
+
+entity GameCategory {
+  *category_id : int
+  --
+  name : string
+  description : string
+}
+
+entity GamePlatform {
+  *platform_id : int
+  --
+  name : string
+}
+Game }--|| GameCategory : belongs to
+Game }--|| GamePlatform : available on
+
+entity Vinyl {
+  *vinyl_id : int
+  --
+  title : string
+  artist : string
+  release_year : int
+  genre : string
+  vinyl_category_id : int
+}
+entity VinylCategory {
+  *category_id : int
+  --
+  name : string
+  description : string
+}
+Vinyl }--|| VinylCategory : belongs to
+@enduml
