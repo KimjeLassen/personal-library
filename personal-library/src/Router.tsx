@@ -6,6 +6,7 @@ import Books from './pages/Books/Books';
 import Games from './pages/Games/Games';
 import Vinyls from './pages/Vinyls/Vinyls';
 import BookDetails from './pages/Books/BookDetails';
+import CreateBook from './pages/Books/CreateBook';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/games" element={<Games />} />
           <Route path="/vinyls" element={<Vinyls />} />
           <Route path="/books/:id" element={<BookDetails />} />
+          <Route path ="/books/create" element={<CreateBook/>} />
         </Routes>
       </div>
     </Router>

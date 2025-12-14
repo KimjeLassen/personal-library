@@ -165,4 +165,10 @@
   .page-title {
     font-size: 2rem;
   }
+
+  .create-button{
+    text-align: right;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
 }
