@@ -28,7 +28,6 @@ entity Game {
   platform : int
   release_year : int
   genre : string
-  game_category_id : int
   order_index : int
   finished : boolean
 }
@@ -62,6 +61,5 @@ entity Vinyl {
   artist : string
   release_year : int
   genre : string
-  vinyl_category_id : int
 }
 @enduml
