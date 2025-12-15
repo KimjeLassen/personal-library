@@ -33,11 +33,16 @@ entity Game {
   finished : boolean
 }
 
-entity GameCategory {
+entity GameTag {
   *category_id : int
   --
   name : string
   description : string
+}
+
+entity GameTagAssignment {
+  *game_id : int
+  *tag_id : int
 }
 
 entity GamePlatform {
@@ -45,7 +50,9 @@ entity GamePlatform {
   --
   name : string
 }
-Game }--|| GameCategory : belongs to
+
+GameTagAssignment }--|| Game : assigned to
+GameTagAssignment }--|| GameTag : has tag
 Game }--|| GamePlatform : available on
 
 entity Vinyl {
@@ -57,11 +64,4 @@ entity Vinyl {
   genre : string
   vinyl_category_id : int
 }
-entity VinylCategory {
-  *category_id : int
-  --
-  name : string
-  description : string
-}
-Vinyl }--|| VinylCategory : belongs to
 @enduml
