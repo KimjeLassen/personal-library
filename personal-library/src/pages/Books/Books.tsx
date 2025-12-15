@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface Book {
   book_id: number;
@@ -41,9 +42,8 @@ function Books() {
         <p className="page-subtitle">Your reading collection</p>
       </header>
       <main className="page-content">
-        <button className="create-button">
-        <a href="/books/create">+ Add New Book</a>
-        </button>
+        <a className= "btn btn-primary create-button"href="/books/create">+ Add New Book</a>
+        <a className= "btn btn-secondary create-button"href="/categories/books/create">+ Add New Category</a>
         {loading && <p>Loading...</p>}
         {error && <p className="error">Error: {error}</p>}
         {!loading && !error && books.length === 0 && (

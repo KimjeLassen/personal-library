@@ -7,6 +7,7 @@ import Games from './pages/Games/Games';
 import Vinyls from './pages/Vinyls/Vinyls';
 import BookDetails from './pages/Books/BookDetails';
 import CreateBook from './pages/Books/CreateBook';
+import CreateCategory from './pages/CreateCategory';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/vinyls" element={<Vinyls />} />
           <Route path="/books/:id" element={<BookDetails />} />
           <Route path ="/books/create" element={<CreateBook/>} />
+          <Route path="/categories/:type/create" element={<CreateCategory />} />
         </Routes>
       </div>
     </Router>

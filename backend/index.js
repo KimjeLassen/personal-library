@@ -18,6 +18,7 @@ const port = 3001;
 
 // Book routes
 app.use('/api/books', require('./routes/books'));
+app.use('/api/books/categories', require('./routes/book_categories'));
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
