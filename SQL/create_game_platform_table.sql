@@ -1,0 +1,4 @@
+CREATE TABLE gameplatform(
+platformid SERIAL PRIMARY KEY,
+name VARCHAR(255) NOT NULL
+)
