@@ -1,4 +1,4 @@
-CREATE TABLE gameplatform(
-platformid SERIAL PRIMARY KEY,
+CREATE TABLE game_platform(
+platform_id SERIAL PRIMARY KEY,
 name VARCHAR(255) NOT NULL
 )
