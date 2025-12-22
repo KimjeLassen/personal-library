@@ -32,6 +32,7 @@ const Game = {
             'DELETE FROM game WHERE game_id = $1',
             [gameId]
         );
+        return { message: 'Game deleted' };
     },
     async updateGame(game_id, game) {
         const {title, platform, release_year, genre, finished } = game;
