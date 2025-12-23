@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
 })
 router.post('/', async (req, res) => {
     try {
-        const platform = Platform.create(req.body)
+        const platform = await Platform.create(req.body)
         res.status(201).json(platform);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 });
 router.put('/:id', async (req, res) => {
   try {
-    const platform = Platform.update(req.params.id, req.body)
+    const platform = await Platform.update(req.params.id, req.body)
     res.json(platform);
   } catch (err) {
     res.status(500).json({ error: err.message })
@@ -36,7 +36,7 @@ router.put('/:id', async (req, res) => {
 });
 router.delete('/:id', async (req, res) => {
   try {
-    const status = Platform.delete(req.params.id);
+    const status = await Platform.delete(req.params.id);
     res.json({message: 'Platform deleted'});
   } catch (err) {
     res.status(500).json({ error: err.message })
