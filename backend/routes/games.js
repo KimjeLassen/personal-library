@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Game = require('../models/game');
+const Game_Tag = require('../models/game_tag');
 
 router.get('/', async (req, res) => {
   try {
@@ -22,7 +23,11 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const game = await Game.create(req.body);
+    const game = await Game.create(req.body.game);
+    const tagPromises = req.body.tags.map(tagName => Game_Tag.createOrGet(tagName));
+    const tags = await Promise.all(tagPromises);
+    const tagAssignmentPromises = tags.map(tag => Game_Tag.assignGameTag(game.game_id, tag.tag_id))
+    const tagAssignments = await Promise.all(tagAssignmentPromises);
     res.status(201).json(game);
   } catch (err) {
     res.status(500).json({ error: err.message });

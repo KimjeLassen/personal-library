@@ -2,11 +2,29 @@ const pool = require('../db');
 
 const Game = {
     async getAll() {
-        const res = await pool.query('SELECT * FROM game ORDER BY order_index');
+        const res = await pool.query(`
+            SELECT 
+            g.*, 
+            COALESCE(JSON_AGG(gt.name) FILTER (WHERE gt.name IS NOT NULL), '[]') AS tags
+            FROM game g
+            LEFT JOIN game_tag_assignment gta ON g.game_id = gta.game_id
+            LEFT JOIN game_tag gt ON gta.game_tag_id = gt.tag_id
+            GROUP BY g.game_id
+            ORDER BY g.order_index;`
+        );
         return res.rows;
     },
     async getById(game_id) {
-        const res = await pool.query('SELECT * FROM game WHERE game_id = $1', [game_id]);
+        const res = await pool.query(`
+            SELECT 
+            g.*, 
+            COALESCE(JSON_AGG(gt.name) FILTER (WHERE gt.name IS NOT NULL), '[]') AS tags
+            FROM game g
+            LEFT JOIN game_tag_assignment gta ON g.game_id = gta.game_id
+            LEFT JOIN game_tag gt ON gta.game_tag_id = gt.tag_id
+            WHERE g.game_id = $1
+            GROUP BY g.game_id;`, [game_id]
+        );
         return res.rows[0];
     },
     async create (game) {

@@ -25,6 +25,21 @@ const Game_Tag = {
     async delete(tag_id) {
         await pool.query('DELETE from game_tag WHERE tag_id = $1', [tag_id])
         return { message: 'Tag deleted' }
+    },
+    async createOrGet(name) {
+       const res = await pool.query(
+        `INSERT INTO game_tag (name)
+        VALUES ($1)
+        ON CONFLICT (name) DO UPDATE SET name = EXCLUDED.name
+        RETURNING tag_id;`, [name]
+       );
+       return res.rows[0]
+    },
+    async assignGameTag(game_id, tag_id) {
+        const res = await pool.query(
+            `INSERT INTO game_tag_assignment(game_id, game_tag_id)
+            VALUES ($1, $2)`, [game_id, tag_id]
+        )
     }
 }
 
