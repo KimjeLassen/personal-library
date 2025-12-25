@@ -11,6 +11,8 @@ function Games() {
       </header>
       
       <main className="page-content">
+        <a className= "btn btn-primary create-button"href="/games/create">+ Add New Game</a>
+        <a className= "btn btn-secondary create-button"href="/games/platforms/create">+ Add New Platform</a>
         <p className="empty-state">No games added yet. Start building your collection!</p>
       </main>
     </div>
