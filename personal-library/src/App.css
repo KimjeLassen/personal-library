@@ -1,3 +1,6 @@
+.book-brown {
+  color: #6b4f2c;
+}
 .App {
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc4 100%);
