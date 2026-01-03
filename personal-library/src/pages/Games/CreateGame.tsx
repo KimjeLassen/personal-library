@@ -3,7 +3,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 
 interface GameForm {
 	title: string;
-	platform_id: number;
+	platform: number;
 	release_year: number;
 	genre: string;
 	order_index: number;
@@ -20,7 +20,7 @@ interface GameTag {
 
 const defaultForm: GameForm = {
 	title: '',
-	platform_id: 0,
+	platform: 0,
 	release_year: new Date().getFullYear(),
 	genre: '',
 	order_index: 0,
@@ -68,7 +68,7 @@ function CreateGame() {
         .then((data) => {
           setForm({
             title: data.title,
-            platform_id: data.platform_id,
+            platform: data.platform,
             release_year: data.release_year,
             genre: data.genre,
             order_index: data.order_index,
@@ -88,9 +88,8 @@ function CreateGame() {
   ) => {
     const { name, value } = e.target;
 
-    // Use a more flexible way to determine if it should be a number
     const isNumberField =
-      name === "platform_id" ||
+      name === "platform" ||
       name === "release_year" ||
       name === "order_index";
 
@@ -117,7 +116,7 @@ function CreateGame() {
     setLoading(true);
     setError(null);
     setSuccess(false);
-    console.log(JSON.stringify({ game: form, tags: addedTags }));
+    console.log(JSON.stringify({ game: form, tags: addedTags }))
     const method = id ? "PUT" : "POST";
     const url = id
       ? `http://localhost:3001/api/games/${id}`
@@ -141,6 +140,11 @@ function CreateGame() {
         setLoading(false);
       });
   };
+  const handleRemoveTag = (e: React.MouseEvent<HTMLButtonElement>) => {
+      const tag = e.currentTarget.name.replace("remove_", "");
+      setAddedTags(t => t.filter(item => item != tag))
+  }
+
 
   return (
     <div className="page-container">
@@ -167,9 +171,9 @@ function CreateGame() {
           <label>
             Platform:
             <select
-              name="platform_id" // Changed from "platform" to "platform_id"
-              value={form.platform_id} // Added value binding
-              onChange={handleChange} // Added change handler
+              name="platform" 
+              value={form.platform} 
+              onChange={handleChange} 
               required
             >
               <option value="">Vælg platform</option>
@@ -229,7 +233,7 @@ function CreateGame() {
           </label>
           <p>Tags here:</p>
           {addedTags.map((tag, index) => (
-            <div key={index}>- {tag}</div>
+            <div key={index}>* {tag} <button name = {"remove_"+tag} onClick= {handleRemoveTag}type = "button" className = "btn btn-danger">Fjern</button></div>
           ))}
           <button type="button" onClick={handleAddText}>
             Tilføj tag
