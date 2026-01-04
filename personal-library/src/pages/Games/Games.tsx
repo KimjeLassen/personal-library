@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import styles from './Games.module.css';
 
 function Games() {
   const [platName, setPlatName] = useState("");
@@ -29,50 +30,59 @@ function Games() {
         setPlatName("");
       });
   };
-  return (
-    <div className="page-container">
-      <header className="page-header">
-        <Link to="/" className="back-link">
-          ← Back to Library
-        </Link>
-        <h1 className="page-title">Games</h1>
-        <p className="page-subtitle">Your gaming library</p>
-      </header>
+return (
+    <div className={styles.gamingContainer}>
+      <div className="container py-5">
+        
+        <header className={styles.pageHeader}>
+          <Link to="/" className={styles.backLink}>
+            ← Back to Library
+          </Link>
+          <h1 className={styles.pageTitle}>Games</h1>
+          <p className={styles.pageSubtitle}>Your gaming library</p>
+        </header>
 
-      <main className="page-content">
-        <div id="button-container">
-          <a className="btn btn-primary create-button" href="/games/create">
-            + Add New Game
-          </a>
-          <button
-            onClick={toggleAddForm}
-            className="btn btn-secondary create-button"
-          >
-            Opret platform
-          </button>
+        <main className="page-content">
+          <div className={styles.buttonContainer}>
+            <a className={`btn ${styles.btnPrimary}`} href="/games/create">
+              + Add New Game
+            </a>
+            <button
+              onClick={toggleAddForm}
+              className={`btn ${styles.btnSecondary}`}
+            >
+              Opret platform
+            </button>
+          </div>
+
           {platAdd && (
-            <div id="platform-add-container">
+            <div className={styles.platformAddCard}>
               <h3>Add Game Platform</h3>
-              <label htmlFor="nameInput">Name: </label>
-              <input
-                id="nameInput"
-                type="text"
-                value={platName}
-                onChange={handleOnChange}
-              />
-              <button
-                className="btn btn-primary"
-                onClick={handlePlatformAddClick}
-              >
-                Tilføj
-              </button>
+              <div className="d-flex align-items-center gap-2">
+                <label htmlFor="nameInput" style={{color: '#2aa198'}}>Name: </label>
+                <input
+                  id="nameInput"
+                  className={styles.gamingInput}
+                  type="text"
+                  value={platName}
+                  onChange={handleOnChange}
+                />
+                <button
+                  className={`btn ${styles.btnPrimary}`}
+                  onClick={handlePlatformAddClick}
+                >
+                  Tilføj
+                </button>
+              </div>
             </div>
           )}
-        </div>
-        <p className="empty-state">
-          No games added yet. Start building your collection!
-        </p>
-      </main>
+
+          {/* This part shows if list is empty */}
+          <p className={styles.emptyState}>
+            No games added yet. Start building your collection!
+          </p>
+        </main>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,133 @@
+.gamingContainer {
+  background-color: #002b36;
+  min-height: 100vh;
+  color: #839496;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 3rem;
+}
+
+.pageHeader {
+  border-bottom: 1px solid #586e75;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pageTitle {
+  color: #b58900;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pageSubtitle {
+  color: #2aa198;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.backLink {
+  color: #268bd2;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #2aa198;
+}
+
+/* --- CARDS & CONTAINERS --- */
+.gamingCard {
+  background-color: #073642;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #586e75;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- INPUTS & FORMS --- */
+.gamingInput {
+  background-color: #002b36 !important;
+  border: 1px solid #586e75 !important;
+  color: #93a1a1 !important;
+}
+
+.gamingInput:focus {
+  border-color: #268bd2 !important;
+  box-shadow: 0 0 8px rgba(38, 139, 210, 0.3) !important;
+}
+
+.formLabel {
+  color: #2aa198;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* --- BUTTONS --- */
+.btnPrimary {
+  background-color: #b58900 !important;
+  border: none !important;
+  color: #002b36 !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+}
+
+.btnPrimary:hover {
+  background-color: #cb4b16 !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  background-color: transparent !important;
+  border: 1px solid #2aa198 !important;
+  color: #2aa198 !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+}
+
+.btnSecondary:hover {
+  background-color: #2aa198 !important;
+  color: #002b36 !important;
+}
+
+/* --- TAGS & SPECIAL ELEMENTS --- */
+.tagBadge {
+  background-color: #002b36;
+  border: 1px solid #2aa198;
+  color: #2aa198;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnRemove {
+  background: #dc3545;
+  border: none;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.emptyState {
+  color: #586e75;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 4rem;
+  letter-spacing: 1px;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}

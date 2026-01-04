@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
+import styles from './Games.module.css';
 
 interface GameForm {
 	title: string;
@@ -146,103 +147,132 @@ function CreateGame() {
   }
 
 
-  return (
-    <div className="page-container">
-      <header className="page-header">
-        <Link to="/games" className="back-link">
-          ← Back to games
-        </Link>
-        <h1 className="page-title">{id ? "Update Game" : "Add a New Game"}</h1>
-      </header>
-      <main className="page-content">
-        {loading && <p>Loading...</p>}
-        {error && <p className="error">Error: {error}</p>}
-        {success && <p className="success">Game saved!</p>}
-        <form onSubmit={handleSubmit} className="game-form">
-          <label>
-            Title:
-            <input
-              name="title"
-              value={form.title}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Platform:
-            <select
-              name="platform" 
-              value={form.platform} 
-              onChange={handleChange} 
-              required
-            >
-              <option value="">Vælg platform</option>
-              {platforms.map((platforms) => (
-                <option
-                  key={platforms.platform_id}
-                  value={platforms.platform_id}
-                >
-                  {platforms.name}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            Release Year:
-            <input
-              name="release_year"
-              type="number"
-              value={form.release_year}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Genre:
-            <input
-              name="genre"
-              value={form.genre}
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Finished:
-            <input
-              name="finished"
-              type="checkbox"
-              checked={form.finished}
-              onChange={handleChange}
-            />
-          </label>
-          <label>
-            Tags:
-            <input
-              name="tags"
-              list="suggestions"
-              onChange={(e) => setInputTag(e.target.value)}
-              required
-            />
-            <datalist id="suggestions">
-              {tags.map((tags) => (
-                <option key={tags.name} value={tags.name}>
-                  {tags.name}
-                </option>
-              ))}
-            </datalist>
-          </label>
-          <p>Tags here:</p>
-          {addedTags.map((tag, index) => (
-            <div key={index}>* {tag} <button name = {"remove_"+tag} onClick= {handleRemoveTag}type = "button" className = "btn btn-danger">Fjern</button></div>
-          ))}
-          <button type="button" onClick={handleAddText}>
-            Tilføj tag
-          </button>
-          <button type="submit" disabled={loading}>
-            {id ? "Update Game" : "Add Game"}
-          </button>
-        </form>
-      </main>
+return (
+    <div className={styles.gamingContainer}>
+      <div className="container py-5">
+        <div className="row justify-content-center">
+          <div className="col-md-8 col-lg-6">
+            
+            <header className="mb-4">
+              <Link to="/games" className={styles.backLink}>
+                ← Back to games
+              </Link>
+              <h1 className={`${styles.pageTitle} mt-2`}>
+                {id ? "Update Game" : "Add a New Game"}
+              </h1>
+            </header>
+
+            <main className={styles.gamingCard}>
+              {loading && <p className={`${styles.blink} text-info`}>Loading...</p>}
+              {error && <p className="text-danger">Error: {error}</p>}
+              {success && <p className="text-success">Game saved!</p>}
+
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label className="form-label" style={{color: '#2aa198'}}>Title:</label>
+                  <input
+                    name="title"
+                    className={`form-control ${styles.gamingInput}`}
+                    value={form.title}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label" style={{color: '#2aa198'}}>Platform:</label>
+                    <select
+                      name="platform"
+                      className={`form-select ${styles.gamingInput}`}
+                      value={form.platform}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="">Vælg platform</option>
+                      {platforms.map((p) => (
+                        <option key={p.platform_id} value={p.platform_id}>{p.name}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="col-md-6 mb-3">
+                    <label className="form-label" style={{color: '#2aa198'}}>Release Year:</label>
+                    <input
+                      name="release_year"
+                      type="number"
+                      className={`form-control ${styles.gamingInput}`}
+                      value={form.release_year}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label" style={{color: '#2aa198'}}>Genre:</label>
+                  <input
+                    name="genre"
+                    className={`form-control ${styles.gamingInput}`}
+                    value={form.genre}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+
+                <div className="form-check mb-4">
+                  <input
+                    name="finished"
+                    type="checkbox"
+                    className="form-check-input"
+                    checked={form.finished}
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label text-light">Finished</label>
+                </div>
+
+                <div className="mb-3">
+                  <label className="form-label" style={{color: '#2aa198'}}>Tags:</label>
+                  <div className="input-group">
+                    <input
+                      className={`form-control ${styles.gamingInput}`}
+                      list="suggestions"
+                      value={inputTag}
+                      onChange={(e) => setInputTag(e.target.value)}
+                    />
+                    <button className="btn btn-outline-info" type="button" onClick={handleAddText} style={{borderColor: '#2aa198', color: '#2aa198'}}>
+                      Tilføj tag
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mb-4">
+                  <p className="small" style={{color: '#2aa198'}}>Tags here:</p>
+                  <div className="d-flex flex-wrap gap-2">
+                    {addedTags.map((tag, index) => (
+                      <div key={index} className={styles.tagBadge}>
+                        * {tag} 
+                        <button 
+                          name={"remove_" + tag} 
+                          onClick={handleRemoveTag} 
+                          type="button" 
+                          className={styles.btnRemove}
+                        >
+                          Fjern
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <button type="submit" className={`${styles.btnGamingSubmit} w-100`} disabled={loading}>
+                  {id ? "Update Game" : "Add Game"}
+                </button>
+              </form>
+            </main>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
