@@ -23,6 +23,7 @@
   color: #2aa198;
   font-style: italic;
   font-size: 1.1rem;
+  text-align: center;
 }
 
 .backLink {
@@ -130,4 +131,93 @@
 
 @keyframes blinker {
   50% { opacity: 0; }
+}
+.buttonContainer {
+  display: grid;
+  column-gap: 10px;
+}
+
+.firstButton {
+  grid-column: 1;
+  justify-self: end;
+}
+
+.secondButton {
+  grid-column: 2;
+}
+
+.platformAddCard {
+  border: 1px solid #2aa198 !important;
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 40%;
+  text-align: center;
+  overflow: hidden;
+  animation: slideDownIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slideDownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px); /* Start 50px higher */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Slide down to original position */
+  }
+}
+
+/* Class to trigger when closing */
+.slideUpOut {
+  animation: slideUpOut 0.5s ease-in forwards !important;
+}
+
+@keyframes slideUpOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 500px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px); /* Slides up and fades out */
+    max-height: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+.tag>span {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  color: #002b36;
+}
+.gold_color {
+  background-color: #b58900 !important;
+}
+.deep_blue_color {
+  background-color: #002b36 !important;
+}
+.blue_border {
+  border: 1px solid #2aa198 !important;
+}
+.grid {
+  display:grid;
+  column-gap: 20px;
+  row-gap: 20px;
+
+}
+.blue_text {
+  color: #2aa198 !important;
+}
+
+.game_card_body {
+  height:150px;
+  max-height:150px;
 }

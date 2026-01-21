@@ -265,7 +265,7 @@ return (
                   </div>
                 </div>
 
-                <button type="submit" className={`${styles.btnGamingSubmit} w-100`} disabled={loading}>
+                <button type="submit" className={`${styles.btnPrimary} w-100`} disabled={loading}>
                   {id ? "Update Game" : "Add Game"}
                 </button>
               </form>
