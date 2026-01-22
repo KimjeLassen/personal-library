@@ -201,8 +201,10 @@
 .gold_color {
   background-color: #b58900 !important;
 }
-.deep_blue_color {
-  background-color: #002b36 !important;
+.game_card {
+  text-decoration: none;
+  background-color: #002b36;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .blue_border {
   border: 1px solid #2aa198 !important;
@@ -220,4 +222,9 @@
 .game_card_body {
   height:150px;
   max-height:150px;
+}
+
+.game_card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(42, 161, 152, 0.3) !important;
 }
