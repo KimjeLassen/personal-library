@@ -40,6 +40,20 @@ const Game_Tag = {
             `INSERT INTO game_tag_assignment(game_id, game_tag_id)
             VALUES ($1, $2)`, [game_id, tag_id]
         )
+    },
+    async getTagsByGameId(game_id) {
+        const res = await pool.query(
+            `SELECT gt.tag_id, gt.name FROM game_tag gt
+             JOIN game_tag_assignment gta ON gt.tag_id = gta.game_tag_id
+             WHERE gta.game_id = $1`, [game_id]
+        )
+        return res.rows;
+    },
+    async deleteTagAssignment(game_id, tag_id) {
+        const res = await pool.query(
+            `DELETE from game_tag_assignment WHERE game_id = $1 AND game_tag_id = $2`, [game_id, tag_id]
+        );
+        return { message: 'Game tag assignement deleted' }
     }
 }
 

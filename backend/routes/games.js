@@ -64,10 +64,34 @@ router.delete('/:id', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const result = await Game.updateGame(req.params.id, req.body)
-    res.json(result);
+    const game = await Game.updateGame(req.params.id, req.body.game)
+    const existingTags = await Game_Tag.getTagsByGameId(req.params.id);
+    const formTags = req.body.tags;
+    const overlappingTags = []; 
+    const deleteTags = [];
+    const names = [];
+    for (let tag of existingTags)
+    {
+        let name = tag.name;
+        names.push(name);
+        if (formTags.includes(name)) 
+        {
+          const index = formTags.indexOf(name);
+          overlappingTags.push(name)
+          formTags.splice(index, 1)
+        }
+        else
+          deleteTags.push(tag.tag_id);
+    }
+
+    const tagPromises = req.body.tags.map(tagName => Game_Tag.createOrGet(tagName));
+    const tags = await Promise.all(tagPromises);
+    const tagAssignmentPromises = tags.map(tag => Game_Tag.assignGameTag(game.game_id, tag.tag_id))
+    const tagAssignments = await Promise.all(tagAssignmentPromises);
+    const removals = deleteTags.map(tag => Game_Tag.deleteTagAssignment(req.params.id, tag))
+    res.status(201).json(game);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err.message, game: req.body});
   }
 })
 

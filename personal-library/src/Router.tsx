@@ -9,6 +9,7 @@ import BookDetails from './pages/Books/BookDetails';
 import CreateBook from './pages/Books/CreateBook';
 import CreateCategory from './pages/CreateCategory';
 import CreateGame from './pages/Games/CreateGame';
+import GameDetails from './pages/Games/GameDetails';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
           <Route path ="/books/create" element={<CreateBook/>} />
           <Route path="/categories/:type/create" element={<CreateCategory />} />
           <Route path="/games/create" element={<CreateGame />} />
+          <Route path="/games/edit/:id" element={<CreateGame />} />
+          <Route path="/games/:id" element={<GameDetails/>} />
         </Routes>
       </div>
     </Router>

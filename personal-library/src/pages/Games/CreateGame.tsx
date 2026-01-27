@@ -75,6 +75,7 @@ function CreateGame() {
             order_index: data.order_index,
             finished: data.finished,
           });
+          setAddedTags(data.tags);
           setLoading(false);
         })
         .catch((err) => {

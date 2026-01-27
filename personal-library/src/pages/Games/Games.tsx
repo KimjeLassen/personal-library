@@ -149,7 +149,7 @@ function Games() {
                 const columnValue = (index % 3) + 1;
               return (
                 <div key= {game.game_id} className={styles.grid_card} style={{gridColumn: columnValue}}>
-                  <a className={`${styles.blue_border} ${styles.blue_text} ${styles.game_card}` + " card"} href ="/games">
+                  <Link className={`${styles.blue_border} ${styles.blue_text} ${styles.game_card}` + " card"} to ={`/games/${game.game_id}`}>
                     <h5 className={`${styles.blue_border}` + " card-header"}>{game.title}</h5>
                     <div className={`${styles.game_card_body}` + " card-body"}>
                       {game.tags.map((tag) => (
@@ -157,7 +157,7 @@ function Games() {
                       ))}
                       <h5 className="card-title">{game.genre}</h5>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               )})}
             </div>

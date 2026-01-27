@@ -146,6 +146,11 @@
   grid-column: 2;
 }
 
+.onlyButton {
+  grid-column: 1;
+  justify-self:center;
+}
+
 .platformAddCard {
   border: 1px solid #2aa198 !important;
   border-radius: 25px;
@@ -227,4 +232,50 @@
 .game_card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 12px 32px rgba(42, 161, 152, 0.3) !important;
+}
+
+/* --- GAME DETAILS PAGE --- */
+.detailsTitle {
+  color: #b58900;
+  margin-bottom: 1.5rem;
+}
+
+.detailsContent {
+  margin-bottom: 2rem;
+}
+
+.detailsRow {
+  margin-bottom: 0.75rem;
+}
+
+.detailsLabel {
+  color: #2aa198;
+}
+
+.statusFinished {
+  color: #2aa198;
+}
+
+.statusInProgress {
+  color: #cb4b16;
+}
+
+.tagsSection {
+  margin-top: 1rem;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.tagSpan {
+  background-color: #073642;
+  border: 1px solid #2aa198;
+  color: #b58900;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
 }
