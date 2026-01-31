@@ -144,22 +144,58 @@ function Games() {
             </p>
           )}
           {!loading && !error && games.length > 0 && (
-            <div className= {styles.grid}>
+            <div className={styles.grid}>
               {games.map((game, index) => {
                 const columnValue = (index % 3) + 1;
-              return (
-                <div key= {game.game_id} className={styles.grid_card} style={{gridColumn: columnValue}}>
-                  <Link className={`${styles.blue_border} ${styles.blue_text} ${styles.game_card}` + " card"} to ={`/games/${game.game_id}`}>
-                    <h5 className={`${styles.blue_border}` + " card-header"}>{game.title}</h5>
-                    <div className={`${styles.game_card_body}` + " card-body"}>
-                      {game.tags.map((tag) => (
-                        <p key={tag} className={`${styles.tag}`}><span className= {`${styles.gold_color}`}>{tag}</span></p>
-                      ))}
-                      <h5 className="card-title">{game.genre}</h5>
-                    </div>
-                  </Link>
-                </div>
-              )})}
+                return (
+                  <div
+                    key={game.game_id}
+                    className={styles.grid_card}
+                    style={{ gridColumn: columnValue }}
+                  >
+                    <Link
+                      className={
+                        `${styles.blue_border} ${styles.blue_text} ${styles.game_card}` +
+                        " card"
+                      }
+                      to={`/games/${game.game_id}`}
+                    >
+                      <h5 className={`${styles.blue_border}` + " card-header"}>
+                        {game.title}
+                      </h5>
+                      <div
+                        className={`${styles.game_card_body}` + " card-body"}
+                      >
+                        <div className={styles.tagSection}>
+                          {game.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className={`${styles.gold_color} ${styles.tag}`}
+                              title={tag}
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className= {styles.bottom}>
+                          <strong className={styles.detailsLabel}>
+                            Status:
+                          </strong>{" "}
+                          <span
+                            className={
+                              game.finished
+                                ? styles.statusFinished
+                                : styles.statusInProgress
+                            }
+                          >
+                            {game.finished ? "Finished" : "In Progress"}
+                          </span>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           )}
         </main>
