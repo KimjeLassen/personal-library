@@ -215,6 +215,8 @@ function Games() {
   };
 
   const handlePlatformAddClick = () => {
+    if (platName === '')
+      return;
     const url = "http://localhost:3001/api/gameplatforms/";
     fetch(url, {
       method: "POST",
