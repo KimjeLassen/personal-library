@@ -237,6 +237,11 @@ return (
                       value={inputTag}
                       onChange={(e) => setInputTag(e.target.value)}
                     />
+                    <datalist id ="suggestions">
+                      {tags.map((tag) => (
+                        <option value = {tag.tag_id}>{tag.name}</option>
+                      ))}
+                    </datalist>
                     <button className="btn btn-outline-info" type="button" onClick={handleAddText} style={{borderColor: '#2aa198', color: '#2aa198'}}>
                       Tilføj tag
                     </button>
