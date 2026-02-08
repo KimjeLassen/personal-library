@@ -66,6 +66,10 @@
 }
 
 /* --- BUTTONS --- */
+.btn {
+  width: 169px;
+}
+
 .btnPrimary {
   background-color: #b58900 !important;
   border: none !important;
@@ -135,15 +139,20 @@
 .buttonContainer {
   display: grid;
   column-gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 170px));
+  justify-content: center;
 }
 
 .firstButton {
   grid-column: 1;
-  justify-self: end;
 }
 
 .secondButton {
   grid-column: 2;
+}
+
+.thirdButton {
+  grid-column: 3;
 }
 
 .onlyButton {
@@ -232,6 +241,19 @@
 .blue_border {
   border: 1px solid #2aa198 !important;
 }
+.grid_card {
+  cursor: grab;
+  touch-action: none;
+  min-width: 0px;
+}
+
+.grid_card:active {
+  cursor: grabbing;
+}
+
+.grid_card:hover {
+  cursor: grab;
+}
 .grid {
   display:grid;
   column-gap: 20px;
@@ -241,7 +263,6 @@
 .blue_text {
   color: #2aa198 !important;
 }
-
 .game_card_body {
   height:150px;
   max-height:150px;
