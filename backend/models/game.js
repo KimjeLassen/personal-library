@@ -28,10 +28,10 @@ const Game = {
         return res.rows[0];
     },
     async create (game) {
-        const { title, platform, release_year, genre, order_index, finished } = game;
+        const { title, platform, release_year, genre, finished } = game;
         const res = await pool.query(
-            'INSERT INTO game (title, platform, release_year, genre, order_index, finished) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *', 
-            [title, platform, release_year, genre, order_index, finished])
+            'INSERT INTO game (title, platform, release_year, genre, finished) VALUES ($1,$2,$3,$4,$5) RETURNING *', 
+            [title, platform, release_year, genre, finished])
             return res.rows[0];
     },
     async editOrder(games) {

@@ -7,7 +7,6 @@ interface GameForm {
 	platform: number;
 	release_year: number;
 	genre: string;
-	order_index: number;
 	finished: boolean;
 }
 interface GamePlatform {
@@ -24,7 +23,6 @@ const defaultForm: GameForm = {
 	platform: 0,
 	release_year: new Date().getFullYear(),
 	genre: '',
-	order_index: 0,
 	finished: false,
 };
 
@@ -72,7 +70,6 @@ function CreateGame() {
             platform: data.platform,
             release_year: data.release_year,
             genre: data.genre,
-            order_index: data.order_index,
             finished: data.finished,
           });
           setAddedTags(data.tags);
@@ -92,8 +89,7 @@ function CreateGame() {
 
     const isNumberField =
       name === "platform" ||
-      name === "release_year" ||
-      name === "order_index";
+      name === "release_year"
 
     setForm((prev) => ({
       ...prev,
