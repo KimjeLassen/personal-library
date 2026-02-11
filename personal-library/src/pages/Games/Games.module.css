@@ -1,0 +1,327 @@
+.gamingContainer {
+  background-color: #002b36;
+  min-height: 100vh;
+  color: #839496;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-bottom: 3rem;
+}
+
+.pageHeader {
+  border-bottom: 1px solid #586e75;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.pageTitle {
+  color: #b58900;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.pageSubtitle {
+  color: #2aa198;
+  font-style: italic;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.backLink {
+  color: #268bd2;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #2aa198;
+}
+
+/* --- CARDS & CONTAINERS --- */
+.gamingCard {
+  background-color: #073642;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid #586e75;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* --- INPUTS & FORMS --- */
+.gamingInput {
+  background-color: #002b36 !important;
+  border: 1px solid #586e75 !important;
+  color: #93a1a1 !important;
+}
+
+.gamingInput:focus {
+  border-color: #268bd2 !important;
+  box-shadow: 0 0 8px rgba(38, 139, 210, 0.3) !important;
+}
+
+.formLabel {
+  color: #2aa198;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* --- BUTTONS --- */
+.btn {
+  width: 169px;
+}
+
+.btnPrimary {
+  background-color: #b58900 !important;
+  border: none !important;
+  color: #002b36 !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+}
+
+.btnPrimary:hover {
+  background-color: #cb4b16 !important;
+  color: #fff !important;
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  background-color: transparent !important;
+  border: 1px solid #2aa198 !important;
+  color: #2aa198 !important;
+  font-weight: bold !important;
+  text-transform: uppercase;
+}
+
+.btnSecondary:hover {
+  background-color: #2aa198 !important;
+  color: #002b36 !important;
+}
+
+/* --- TAGS & SPECIAL ELEMENTS --- */
+.tagBadge {
+  background-color: #002b36;
+  border: 1px solid #2aa198;
+  color: #2aa198;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btnRemove {
+  background: #dc3545;
+  border: none;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.emptyState {
+  color: #586e75;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 4rem;
+  letter-spacing: 1px;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+.buttonContainer {
+  display: grid;
+  column-gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 170px));
+  justify-content: center;
+}
+
+.firstButton {
+  grid-column: 1;
+}
+
+.secondButton {
+  grid-column: 2;
+}
+
+.thirdButton {
+  grid-column: 3;
+}
+
+.onlyButton {
+  grid-column: 1;
+  justify-self:center;
+}
+
+.platformAddCard {
+  border: 1px solid #2aa198 !important;
+  border-radius: 25px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 40%;
+  text-align: center;
+  overflow: hidden;
+  animation: slideDownIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes slideDownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px); /* Start 50px higher */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Slide down to original position */
+  }
+}
+
+/* Class to trigger when closing */
+.slideUpOut {
+  animation: slideUpOut 0.5s ease-in forwards !important;
+}
+
+@keyframes slideUpOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 500px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px); /* Slides up and fades out */
+    max-height: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+.tag {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 20px;
+  color: #002b36;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-right: 5px
+}
+
+.tagSection {
+  max-height: 50px;
+  max-width: 400px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width:thin;
+  scrollbar-color: #2aa198 #073642;
+}
+
+.gold_color {
+  background-color: #b58900 !important;
+}
+.game_card {
+  text-decoration: none;
+  background-color: #002b36;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.blue_border {
+  border: 1px solid #2aa198 !important;
+}
+.grid_card {
+  cursor: grab;
+  touch-action: none;
+  min-width: 0px;
+}
+
+.grid_card:active {
+  cursor: grabbing;
+}
+
+.grid_card:hover {
+  cursor: grab;
+}
+.grid {
+  display:grid;
+  column-gap: 20px;
+  row-gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 400px));
+}
+.blue_text {
+  color: #2aa198 !important;
+}
+.game_card_body {
+  height:150px;
+  max-height:150px;
+  position: relative;
+}
+
+.game_card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(42, 161, 152, 0.3) !important;
+}
+
+/* --- GAME DETAILS PAGE --- */
+.detailsTitle {
+  color: #b58900;
+  margin-bottom: 1.5rem;
+}
+
+.detailsContent {
+  margin-bottom: 2rem;
+}
+
+.detailsRow {
+  margin-bottom: 0.75rem;
+}
+
+.detailsLabel {
+  color: #2aa198;
+}
+
+.statusFinished {
+  color: #2aa198;
+}
+
+.statusInProgress {
+  color: #cb4b16;
+}
+
+.tagsSection {
+  margin-top: 1rem;
+}
+
+.tagsContainer {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.tagSpan {
+  background-color: #073642;
+  border: 1px solid #2aa198;
+  color: #b58900;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.bottom {
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 10px;
+}

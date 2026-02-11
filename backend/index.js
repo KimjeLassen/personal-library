@@ -16,9 +16,11 @@ app.use(express.json());
 const port = 3001;
 
 
-// Book routes
 app.use('/api/books', require('./routes/books'));
 app.use('/api/books/categories', require('./routes/book_categories'));
+app.use('/api/games', require('./routes/games'));
+app.use('/api/gameplatforms', require('./routes/game_platforms'));
+app.use('/api/gametags', require('./routes/game_tags'));
 
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
