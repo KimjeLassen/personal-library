@@ -42,14 +42,14 @@ function GameDetails() {
           <Link to="/games" className={styles.backLink}>
             ← Back to Games
           </Link>
-          <h1 className={styles.pageTitle}>Game Details</h1>
+          <h1 className={styles.pageTitle}>Spildetaljer</h1>
           <div className={styles.buttonContainer}>
             <div className={styles.onlyButton}>
               <a
                 className={`btn ${styles.btnPrimary}`}
                 href={`/games/edit/${game?.game_id}`}
               >
-                + Edit Game
+                + Rediger spil
               </a>
             </div>
           </div>
@@ -62,7 +62,7 @@ function GameDetails() {
               <h2 className={styles.detailsTitle}>{game.title}</h2>
               <div className={styles.detailsContent}>
                 <p className={styles.detailsRow}>
-                  <strong className={styles.detailsLabel}>Release Year:</strong>{" "}
+                  <strong className={styles.detailsLabel}>Udgivelsesår:</strong>{" "}
                   {game.release_year}
                 </p>
                 <p className={styles.detailsRow}>
@@ -78,7 +78,7 @@ function GameDetails() {
                         : styles.statusInProgress
                     }
                   >
-                    {game.finished ? "Finished" : "In Progress"}
+                    {game.finished ? "Færdig" : "Ikke færdig"}
                   </span>
                 </p>
                 {game.tags && game.tags.length > 0 && (
@@ -97,7 +97,7 @@ function GameDetails() {
             </div>
           )}
           {!loading && !error && !game && (
-            <p className="empty-state">Game not found.</p>
+            <p className="empty-state">Spil ikke fundet.</p>
           )}
         </main>
       </div>

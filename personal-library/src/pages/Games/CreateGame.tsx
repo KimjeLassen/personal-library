@@ -152,10 +152,10 @@ return (
             
             <header className="mb-4">
               <Link to="/games" className={styles.backLink}>
-                ← Back to games
+                ← Tilbage
               </Link>
               <h1 className={`${styles.pageTitle} mt-2`}>
-                {id ? "Update Game" : "Add a New Game"}
+                {id ? "Opdater spil" : "Tilføj nyt spil"}
               </h1>
             </header>
 
@@ -166,7 +166,7 @@ return (
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label className="form-label" style={{color: '#2aa198'}}>Title:</label>
+                  <label className="form-label" style={{color: '#2aa198'}}>Titel:</label>
                   <input
                     name="title"
                     className={`form-control ${styles.gamingInput}`}
@@ -194,7 +194,7 @@ return (
                   </div>
 
                   <div className="col-md-6 mb-3">
-                    <label className="form-label" style={{color: '#2aa198'}}>Release Year:</label>
+                    <label className="form-label" style={{color: '#2aa198'}}>Udgivelsesår:</label>
                     <input
                       name="release_year"
                       type="number"
@@ -225,7 +225,7 @@ return (
                     checked={form.finished}
                     onChange={handleChange}
                   />
-                  <label className="form-check-label text-light">Finished</label>
+                  <label className="form-check-label text-light">Færdig</label>
                 </div>
 
                 <div className="mb-3">
@@ -249,7 +249,7 @@ return (
                 </div>
 
                 <div className="mb-4">
-                  <p className="small" style={{color: '#2aa198'}}>Tags here:</p>
+                  <p className="small" style={{color: '#2aa198'}}>Tilføjede tags:</p>
                   <div className="d-flex flex-wrap gap-2">
                     {addedTags.map((tag, index) => (
                       <div key={index} className={styles.tagBadge}>
@@ -268,7 +268,7 @@ return (
                 </div>
 
                 <button type="submit" className={`${styles.btnPrimary} w-100`} disabled={loading}>
-                  {id ? "Update Game" : "Add Game"}
+                  {id ? "Opdater spil" : "Opret spil"}
                 </button>
               </form>
             </main>

@@ -68,7 +68,7 @@ function GameCard({ game, columnValue }: SortableGameCardProps) {
                   : styles.statusInProgress
               }
             >
-              {game.finished ? "Finished" : "In Progress"}
+              {game.finished ? "Færdig" : "Ikke færdig"}
             </span>
           </div>
         </div>
@@ -135,7 +135,7 @@ function SortableGameCard({ game }: SortableGameCardProps) {
                   : styles.statusInProgress
               }
             >
-              {game.finished ? "Finished" : "In Progress"}
+              {game.finished ? "Færdig" : "Ikke færdig"}
             </span>
           </div>
         </div>
@@ -164,7 +164,7 @@ function Games() {
   useEffect(() => {
     fetch("http://localhost:3001/api/games")
       .then((res) => {
-        if (!res.ok) throw new Error("Fejl i netværk");
+        if (!res.ok) throw new Error("Network error: " + res);
         return res.json();
       })
       .then((data) => {
@@ -224,7 +224,7 @@ function Games() {
       body: JSON.stringify({ name: platName }),
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to save platform");
+        if (!res.ok) throw new Error("Failed to save platform: " + res);
         return res.json();
       })
       .then(() => {
@@ -250,10 +250,10 @@ function Games() {
       <div className="container py-5">
         <header className={styles.pageHeader}>
           <Link to="/" className={styles.backLink}>
-            ← Back to Library
+            ← Tilbage
           </Link>
-          <h1 className={styles.pageTitle}>Games</h1>
-          <p className={styles.pageSubtitle}>Your gaming library</p>
+          <h1 className={styles.pageTitle}>Spil</h1>
+          <p className={styles.pageSubtitle}>Din spil-liste. Her kan du oprette spil og se de detaljer du har givet om spillet.</p>
           <div className={styles.buttonContainer}>
             {/* First button */}
             <div className={styles.firstButton}>
@@ -262,7 +262,7 @@ function Games() {
                 onClick={() => window.location.href = '/games/create'}
                 className={`btn ${styles.btnPrimary} ${styles.btn}`}
               >
-                + Add New Game
+                + Tilføj nyt spil
               </button>
             </div>
 
@@ -342,11 +342,11 @@ function Games() {
         </header>
 
         <main className="page-content">
-          {loading && <p>Loading...</p>}
+          {loading && <p>Indlæser...</p>}
           {error && <p className="error">Error: {error}</p>}
           {!loading && !error && games.length === 0 && (
             <p className="empty-state">
-              No books added yet. Start building your collection!
+              Tom liste. Tilføj nogle spil! 
             </p>
           )}
           {!loading && !error && games.length > 0 && isEditOrder && (
