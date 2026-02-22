@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './i18n/translations';
 import App from './Router';
 import reportWebVitals from './reportWebVitals';
 import toast, { Toaster } from 'react-hot-toast';
