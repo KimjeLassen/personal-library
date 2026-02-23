@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <header className="header">
-        <h1 className ="title">{t('Library Header')}</h1>
+        <h1 className ="title">{t('library header')}</h1>
         <p className="subtitle">Organize your collection</p>
       </header>
       
