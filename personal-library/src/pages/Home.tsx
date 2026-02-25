@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function Home() {
+  const { t } = useTranslation();
   return (
     <>
       <header className="header">
-        <h1 className="title">My Personal Library</h1>
+        <h1 className ="title">{t('library header')}</h1>
         <p className="subtitle">Organize your collection</p>
       </header>
       
