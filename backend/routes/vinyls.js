@@ -42,7 +42,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   try {
     await Vinyl.delete(req.params.id);
-    res.json({ message: 'Book deleted' });
+    res.json({ message: 'Vinyl deleted' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
