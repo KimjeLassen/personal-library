@@ -1,6 +1,6 @@
 const express = require('express');
-const router = express.router();
-const Vinyl = requre('../models/vinyl');
+const router = express.Router();
+const Vinyl = require('../models/vinyl');
 
 router.get('/', async (req, res) => {
     try {
